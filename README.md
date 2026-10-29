@@ -1,7 +1,5 @@
 # workforce-audit
 
----
-
 ### Disclaimers and Copyright
 
 #### Copyright © 2026 Esri
