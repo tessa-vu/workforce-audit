@@ -1,0 +1,6 @@
+# Caches
+__pycache__/
+.ruff_cache/
+
+# Local Configs
+.vscode/
