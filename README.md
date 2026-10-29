@@ -43,3 +43,13 @@ propy find_workforce_projects.py --out C:\temp\wf.csv
 ```
 
 Output Columns: `version`, `title`, `id`, `owner`, `access`, `created`, `modified`, `url`.
+
+### `InsecureRequestWarning` Messages
+
+You may see many `InsecureRequestWarning: Unverified HTTPS request` messages that come from a thread-safety bug in `truststore` 0.10.0 which is the version bundled with `arcgis` 2.4.3. `arcgis` runs searches on several threads at once and the bug can loosen certificate checks for a connection while that happens, so don't just hide the warning. However, the script's results are not affected.
+
+The fix is `truststore` 0.10.5 or later, and `pyarrow` between 17.0.0 and 24.0.0. ArcGIS Pro's default environment (`arcgispro-py3`) can't be modified so clone it first then run this in the clone env:
+
+```powershell
+python -m pip install --upgrade "truststore>=0.10.5" "pyarrow>=17,<24"
+```
